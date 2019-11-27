@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+
+.tabular {
+margin:2px;
+padding:2px;
+border:1px solid black;
+}
+
+td {
+
+border:1px solid black;
+padding:2px;
+}
+
+
+th {
+
+border:1px solid black;
+padding:2px;
+}
+
+table {
+
+border-collapse: collapse
+}
+
+.Arrow-up{
+
+width:0;
+height:0;
+border-left:5px solid transparent;
+border-right:5px solid transparent;
+border-bottom:10px solid black;
+
+}
+
+.Arrow-down{
+
+width:0;
+height:0;
+border-left:5px solid transparent;
+border-right:5px solid transparent;
+border-top:10px solid black;
+
+}

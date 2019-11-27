@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular Lesson8 : Filters</title>
+<script src="C:\Users\577525\eclipse-workspace\AngularLesson8-Filters\src\Scripts\angular.js"></script>
+<script src="C:\Users\577525\eclipse-workspace\AngularLesson8-Filters\src\Scripts\Angular8.js"></script>
+<link href="C:\Users\577525\eclipse-workspace\AngularLesson8-Filters\src\Scripts\Angular8.css" rel="stylesheet">
+</head>
+
+<body ng-app="MyModule" >
+
+<br></br>
+<div ng-controller="MyController">
+
+<! --****************Limit To *************************** -->
+Rows to diplay : <input type="number" step="1" min="0" max="100" ng-model="rowLimit"/>
+
+
+
+<! --****************Order By *************************** -->
+Order by : <select ng-model="sortColumn">
+<option value="name">Name ASC</option>
+<option value="dateOfBirth">Date of Birth ASC</option>
+<option value="-dateOfBirth">Date of Birth DESC</option>
+<option value="gender">Gender ASC</option>
+</select>
+<br><br/>
+
+<! --****************FILTER *************************** -->
+
+Search All: <input type="Text" placeholder="Search" ng-model="Search"/>
+Search by name: <input type="Text" placeholder="Search by name" ng-model="Search.name"/>
+<br><br/>
+
+
+<table>
+<thead>
+<tr>
+<th ng-click="SortDirection('name')">Name <div ng-class="Arrow('name')"></div></th>
+<th ng-click="SortDirection('dateOfBirth')">DOB<div ng-class="Arrow('dateOfBirth')"></div></th>
+<th ng-click="SortDirection('gender')">Gender<div ng-class="Arrow('gender')"></div></th>
+<th ng-click="SortDirection('type')">Type<div ng-class="Arrow('type')"></div></th>
+</tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="cricketr in info | limitTo:rowLimit | orderBy:sortColumn:reverseSort |filter:Search">
+
+<td>{{ cricketr.name | uppercase }}</td>
+<td>{{ cricketr.dateOfBirth | date:"dd/MM/yyyy" }}</td>
+<td>{{ cricketr.gender |lowercase }}</td>
+<td>{{ cricketr.type | lowercase}}</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</body>
+</html>
